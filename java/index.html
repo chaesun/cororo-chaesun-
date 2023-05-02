@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cororo.js</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js" integrity="sha512-3RlxD1bW34eFKPwj9gUXEWtdSMC59QqIqHnD8O/NoTwSJhgxRizdcFVQhUMFyTp5RwLTDL0Lbcqtl8b7bFAzog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <h2>cororo.js</h2>
+    <main>
+    </main>
+
+    <script>
+
+function setup() {
+  createCanvas(windowWidth,windowHeight);
+  
+  angleMode(DEGREES)
+  rectMode(CENTER)
+  degree = 0;
+}
+
+let cirxleX= 0;
+let cirxleY= 0;
+let Size= 100;
+const diameter = 150;
+
+function draw() {
+  background(0,0,0);
+  translate(windowWidth/2,windowHeight/2);
+  noFill();
+
+  for(i=0; i<155; i++){
+    push()
+    
+      let R= i+frameCount;
+      let G= map(sin(frameCount), -1, 1, 100, 150);
+      let B= 255;
+      stroke(R, G, B);
+      rect(sin(frameCount+i*10)*10,cos(frameCount+i*5)*20,Size+i*5,Size+i*5,200+i*10)
+    pop()
+    
+  }
+ 
+}
+        let babo = "babo";
+        const year = 2023;
+        alert(babo);
+        console.log("Hello, world");
+        console.log(year+2);
+        let 계절 = ["봄", "여름", "가을", "겨울"];
+       
+
+        for (let i = 0; i < 계절.length ; i++) {
+            console.log(계절[i]);
+             }
+
+        if(year>20){
+            console.log("no...")
+        }else if(year=0){
+            console.log("wow..~")
+        }
+        else{
+            console.log("future")
+        }
+    </script>
+</body>
+</html>
