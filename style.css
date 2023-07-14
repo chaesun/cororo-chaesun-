@@ -2,103 +2,15 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-
-header{
-    z-index: 1;
-    top: 0px;
-    left: 0px;
-    padding-bottom: 48px;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 20pt;
-    line-height: 33px;
+body{
+    background: linear-gradient(0deg, rgb(4, 66, 19) 0%, rgb(11, 105, 34) 25%, rgb(148, 192, 4) 40%);
 }
-
-nav{
-    z-index: 2;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 15%;
-    height: 900px
-    margin-bottom: 80px;
-    padding-top: 15px;
-    padding-left: 7.5px;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 12pt;
-    line-height: 24px;
-}
-
-main{
-    margin-left: 16%;
-    padding-top: 1.5%;
-    padding-left: 1%;
-    padding-right: 1%;
-    width: 82%;
-    height: 2000px;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction : row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    background-color: rgb(191, 214, 223);
-    font-family: 'Roboto Condensed', sans-serif;
-}
-
-.window{
-    width: 100px;
-    margin: 2px;
-    height: 100px
-}
-
-.windowshort{
-    width: 100px;
-    margin: 2px;
-    height: 50px
-}
-
-.windowlong{
-    width: 100px;
-    margin: 2px;
-    height: 150px
-}
-
-.blue{
-    background-color: royalblue;
-}
-
-.bg{
-    background-color: rgb(191, 214, 223);
-}
-
-.lemon{
-    background-color: lemonchiffon;
-}
-
-.violet{
-    background-color: rgb(236, 87, 137);
-}
-
-.indigo{
-    background-color: rgb(2, 2, 55);
-}
-
-.green{
-    background-color: rgb(0, 99, 38);
-}
-
-.grey{
-    background-color: darkslategrey;
-}
-
-.lightblue{
-    background-color: rgb(110, 166, 251);
-}
-
 
 a{
+    z-index: 500;
     font-family: 'Roboto Condensed', sans-serif;
     color:black;
+    font-size: 20pt;
 }
 
 a:link {
@@ -110,24 +22,52 @@ a:visited {
 }
 
 a:hover { 
-    color:hotpink; 
+    color:pink; 
     text-decoration-line: line-through;
 }
 
-footer{
-    margin-left: 16%;
-    padding-top: 1.5%;
-    padding-left: 1%;
-    padding-right: 1%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 82%;
-    height: 100px;
-    display: -webkit-flex;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    background-color: darkslategrey;
-    font-family: 'Roboto Condensed', sans-serif;
+.tv{
+    width: 150px;
+    height: auto;
 }
 
+.relative {
+    position: relative;
+  }
+  
+#p5-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1; 
+}
+
+#p6-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0; 
+}
+
+.html-element {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12pt;
+    line-height: 33px;
+
+  }
+
+.center-left{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    z-index: 1; 
+    transform: translate(-50%, 0%);
+  }
+
+.center-left-top{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1; 
+    transform: translate(-50%, -50%);
+  }
