@@ -78,7 +78,7 @@ body {
   @keyframes TitleCloudAni {
     0% {
         top: 50%;
-        left: 10%;
+        left: 50%;
     }
     12.5% {
         top: 20%;
@@ -174,35 +174,39 @@ body {
     }
   }
 
-  /*수정하기*/
 .ChaImg01{
+    top:0px;
+    left:0px;
     margin-top: 5%;
-    display: block;
+    display: none; 
 }
 
 .ChaImg02{
-  
-    display: block;
+    top:0px;
+    left:0px;
+
+    margin-top: 5%;
+    display:none; 
 }
 
 .ChaImg03{
     position: relative;
-    display: block;
+    display:none;
 }
 
 .ChaTxt01{
     position: relative;
-    display: block;
+    display:none; 
 }
 
 .ChaTxt02{
     position: relative;
-    display: block;
+    display:none; 
 }
 
 .ChaTxt03{
     position: relative;
-    display: block;
+    display:none; 
 }
 
 .BgBlue{
@@ -228,40 +232,123 @@ body {
     animation: blinkSH 2s paused;
 }
 
-.SHImg01{
+.SHImg01-1{
+    position: absolute;
+    display: none;
+    top: 200px;
+    left: 20px;
+}
+
+.SHImg02-1{
+    position: absolute;
+    display: none;
+    top: 200px;
+    left: 20px;
+}
+
+.SHImg03-1{
     position: absolute;
     display: none;
 }
 
-.SHImg02{
+.SHImg04-1{
     position: absolute;
     display: none;
 }
 
-.SHImg03{
+.SHTxt01-1{
     position: absolute;
     display: none;
 }
 
-.SHImg04{
+.SHTxt02-1{
     position: absolute;
     display: none;
 }
 
-.SHTxt01{
+.SHTxt03-1{
     position: absolute;
     display: none;
 }
 
-.SHTxt02{
+.SHImg01-2{
+    position: absolute;
+    display: none;
+    top: 200px;
+    left: 20px;
+}
+
+.SHImg02-2{
+    position: absolute;
+    display: none;
+    top: 200px;
+    left: 20px;
+}
+
+.SHImg03-2{
     position: absolute;
     display: none;
 }
 
-.SHTxt03{
+.SHImg04-2{
     position: absolute;
     display: none;
 }
+
+.SHTxt01-2{
+    position: absolute;
+    display: none;
+}
+
+.SHTxt02-2{
+    position: absolute;
+    display: none;
+}
+
+.SHTxt03-2{
+    position: absolute;
+    display: none;
+}
+
+.SHImg01-3{
+    position: absolute;
+    display: none;
+    top: 200px;
+    left: 20px;
+}
+
+.SHImg02-3{
+    position: absolute;
+    display: none;
+    top: 200px;
+    left: 20px;
+}
+
+.SHImg03-3{
+    position: absolute;
+    display: none;
+}
+
+.SHImg04-3{
+    position: absolute;
+    display: none;
+}
+
+.SHTxt01-3{
+    position: absolute;
+    display: none;
+}
+
+.SHTxt02-3{
+    position: absolute;
+    display: none;
+}
+
+.SHTxt03-3{
+    position: absolute;
+    display: none;
+}
+
 
 
 

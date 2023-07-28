@@ -42,13 +42,6 @@ a:hover {
     z-index: -1; 
 }
 
-#p6-canvas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 0; 
-}
-
 .html-element {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 12pt;
@@ -71,3 +64,4 @@ a:hover {
     z-index: 1; 
     transform: translate(-50%, -50%);
   }
+
