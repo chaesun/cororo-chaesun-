@@ -1,3 +1,9 @@
+let OrangeTexture;
+
+
+function preload() {
+OrangeTexture= loadImage('./img/orgtxtr.png');
+}
 
 function setup() {
   var canvas = createCanvas(WindowWidth, WindowHeight, WEBGL);
@@ -5,8 +11,6 @@ function setup() {
 }
 
 function draw() {
-  var p5Sphere = rotateSphere();
-  p5Sphere .parent('p5Sphere');
 }
 //[화면크기와 이미지크기, 배치]
 //초기 화면 크기 저장 
@@ -320,6 +324,7 @@ function showChaTxt01() {
   imageElement.style.display = 'block';
   imageElement.classList.add('ImgSize20');
   document.addEventListener('click', showChaImg02);
+  rotateSphere();
 }
 
 function showChaImg02() {
@@ -332,6 +337,7 @@ function showChaImg02() {
   imageElement.style.height=currentWindowHeight + 'px';
   //imageElement.style.z-index = '-100';
   document.addEventListener('click', showChaTxt02);
+  //이미지 점점 사라지게하기
 }
 
 function showChaTxt02() {
@@ -558,15 +564,16 @@ function startSuyeon(){
     // 8 이상일 때 실행할 작업을 여기에 추가
     console.log('수연.');
     getOrangeDropImg();
+    ShowSYBar();
     // 페이지 로드 후 1초마다 랜덤 이미지 표시
     setInterval(showOrangeDropImg, 16000);
-    setInterval(ShowSYBar, 20000);
     setTimeout(function(){ShowtitleJW();},3000);
   }
 
   // durationSY가 8 미만인 경우 아래의 함수들을 호출
   showOrangeJuice();
   if (18>=durationSY ){
+    rotateSphere();
     document.addEventListener('click',  showOrangeJuice);
   }
   if (24>=durationSY ){
@@ -715,35 +722,72 @@ for (let i = 1; i <= 6; i++) {
   randombar.push(imagePath);
 }
 
-function getImageSrcSYBar(){
+//function getImageSrcSYBar(){
   // 이미지 배열에서 랜덤한 인덱스 선택
-  const randomIndex = Math.floor(Math.random() * randombar.length);
+  //const randomIndex = Math.floor(Math.random() * randombar.length);
   
   // 선택한 이미지 경로 가져오기
-  const randomSrcSYBar = randombar[randomIndex];
-  return randomSrcSYBar;
-}
+  //const randomSrcSYBar = randombar[randomIndex];
+  //return randomSrcSYBar;
+//}
 
 function getRandomPosition(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function ShowSYBar() {
-  var imageElement = document.createElement('img');
-  var RandomX = getRandomPosition(0, WindowWidth);
-  var RandomY = getRandomPosition(0, WindowHeight);
-  imageElement.src = getImageSrcSYBar();
-  imageElement.classList.add('ImgSize20');
-  document.body.appendChild(imageElement);
-  imageElement.style.opacity = '60%';
+//function ShowSYBar() {
+  //var imageElement = document.createElement('img');
+  //var RandomX = getRandomPosition(0, WindowWidth);
+  //var RandomY = getRandomPosition(0, WindowHeight);
+  //imageElement.src = getImageSrcSYBar();
+  //imageElement.classList.add('ImgSize20');
+  //document.body.appendChild(imageElement);
+  //imageElement.style.opacity = '60%';
   // 이미지 위치 설정
-  imageElement.style.left = RandomX + 'px';
-  imageElement.style.top = RandomY  + 'px';
+  //imageElement.style.left = RandomX + 'px';
+  //imageElement.style.top = RandomY  + 'px';
 
   // 이미지 보이기
-  imageElement.style.display = 'block';
+  //imageElement.style.display = 'block';
 
+//}
+
+function ShowSYBar() {
+  let SYbar01 = document.querySelector(".SYbar01");
+  SYbar01.style.display = 'block';
+  ShowSYBar02();
 }
+
+function ShowSYBar02() {
+  let SYbar02 = document.querySelector(".SYbar02");
+  SYbar02.style.display = 'block';
+  ShowSYBar03();
+}
+
+function ShowSYBar03() {
+  let SYbar03 = document.querySelector(".SYbar03");
+  SYbar03.style.display = 'block';
+  ShowSYBar04();
+}
+  
+function ShowSYBar04() {
+  let SYbar04 = document.querySelector(".SYbar04");
+  SYbar04.style.display = 'block';
+  ShowSYBar05();
+}
+
+function ShowSYBar05() {
+  let SYbar05 = document.querySelector(".SYbar05");
+  SYbar05.style.display = 'block';
+  ShowSYBar06();
+}
+
+function ShowSYBar06() {
+  let SYbar06 = document.querySelector(".SYbar06");
+  SYbar06.style.display = 'block';
+}
+
+
 
 //타이틀 클릭 위치 바로 아래에서 처음 이미지 전개
 function ShowtitleJW(){
@@ -766,6 +810,11 @@ const ImgSrcJW = [
   './img/04_jw/img00.png',
   './img/04_jw/img01.png',
   './img/04_jw/img01-01.png',
+  './img/04_jw/img01-02.png',
+  './img/04_jw/img01-03.png',
+  './img/04_jw/img01-04.png',
+  './img/04_jw/img01-05.png',
+  './img/04_jw/img01-06.png',
   './img/04_jw/img02-01.png',
   './img/04_jw/img02-02.png',
   './img/04_jw/img02-03.png',
@@ -860,15 +909,24 @@ function ShowImgMJ(){
   imageElement.style.top = RandomY  + 'px';
   },5000);
 }
+rotateSphere();
 }
 function rotateSphere(){
+let RandomX = random(windowWidth);
+let RandomY = random(windowHeight);
+translate(RandomX, RandomY, 0); 
 rotateY(millis() / 1000);
 fill(235,130,20);
-sphere(32, 8,8);
+var p5Sphere = sphere();
+p5Sphere.parent('p5Sphere');
 }
 
-function sphere(radius, detailX, detailY){
+function sphere(){
   push();
-  sphere(radius, detailX, detailY);
+  texture(OrangeTexture);
+  let r = random(32);
+  let r2 = random(12);
+  let r3 = random(12);
+  sphere(r, r2,r3);
   pop();
 }

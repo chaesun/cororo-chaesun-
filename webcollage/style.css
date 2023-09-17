@@ -307,6 +307,47 @@ body {
     overflow: hidden;
   }
 
+.SYbar01{
+    display: none;
+    top: 0px;
+    left :0px;
+    width: 2880px;
+}
+
+.SYbar02{
+    display: none;
+    width: 2880px;
+    top: 0px;
+    left :0px;
+}
+
+.SYbar03{
+    display: none;
+    width: 1440px;
+    top: 0px;
+    left :0px;
+}
+
+.SYbar04{
+    display: none;
+    top: 0px;
+    left :0px;
+    height: 900px;
+}
+.SYbar05{
+    display: none;
+    top: 0px;
+    left :0px;
+    height: 1000px;
+    width: 50%;
+}
+.SYbar06{
+    display: none;
+    top: 0px;
+    left : 50%;
+    height: 600px;
+}
+
 .juice{
     display: none;
     pointer-events: none; 
@@ -362,54 +403,6 @@ body {
 
 .posdrop .posd {
     position: absolute;
-}
-
-.drop {
-    border-radius: 50%;
-    background-image: linear-gradient(#F7B420, #F7B420), 
-    linear-gradient(100deg, #FCFCFC 0%,
-    #245DA0 67%,
-    #235B9E 68%,
-    #134587 79%,
-    #0A3879 90%,
-    #073475 100%);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    display: inline-block;
-}
-
-.drop2 {
-    position: relative;
-    left: calc();
-    bottom: 500px;
-    border-radius: 50%;
-    background-image: linear-gradient(#C16B00, #C16B00), 
-    linear-gradient(100deg, #FCFCFC 0%,
-    #245DA0 67%,
-    #235B9E 68%,
-    #134587 79%,
-    #0A3879 90%,
-    #073475 100%);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    display: inline-block;
-}
-
-.drop3 {
-    position: relative;
-    right: 70px;
-    top: 20px;
-    border-radius: 50%;
-    background-image: linear-gradient(#7F3603, #7F3603), 
-    linear-gradient(100deg,#FCFCFC 0%,
-    #245DA0 67%,
-    #235B9E 68%,
-    #134587 79%,
-    #0A3879 90%,
-    #073475 100%);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    display: inline-block;
 }
 
 .juicebox{
