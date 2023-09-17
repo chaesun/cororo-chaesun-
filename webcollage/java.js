@@ -1,3 +1,13 @@
+
+function setup() {
+  var canvas = createCanvas(WindowWidth, WindowHeight, WEBGL);
+  canvas.parent('p5-canvas');
+}
+
+function draw() {
+  var p5Sphere = rotateSphere();
+  p5Sphere .parent('p5Sphere');
+}
 //[화면크기와 이미지크기, 배치]
 //초기 화면 크기 저장 
   const WindowWidth = window.innerWidth;
@@ -22,6 +32,19 @@ document.addEventListener('DOMContentLoaded', saveWindowSize);
  console.log("첫 오픈 화면의 크기:");
  console.log("너비:", WindowWidth);
  console.log("높이:", WindowHeight);
+
+ //화면 크기를 이용한 개체 사이즈 조절05%
+ function setImageSize05() {
+  const windowWidth = WindowWidth;
+  const ImgSize05 = document.querySelector('.ImgSize5');
+  const imageWidth05 = Math.min(windowWidth * 0.05, 1000); // 윈도우 너비의 10% 또는 최대 너비 값
+
+  // 이미지의 너비 설정
+  ImgSize05.style.width = imageWidth05 + 'px';
+}
+  window.addEventListener('load', setImageSize05);
+  window.addEventListener('resize', setImageSize05);
+
 
 //화면 크기를 이용한 개체 사이즈 조절10%
   function setImageSize10() {
@@ -73,6 +96,7 @@ function setImageSize15() {
 
 //이미지가 배치된 곳의 x좌표 위치 리스트
   var imagePositionsX = [0,WindowWidth];
+
   function saveImagePositionX(event) {
     var x = event.clientX;
     imagePositionsX.push(x);
@@ -84,6 +108,7 @@ function setImageSize15() {
 
 //이미지가 배치된 곳의 y좌표 위치 리스트
   var imagePositionsY = [0,WindowHeight];
+  
   function saveImagePositionY(event) {
     var y = event.clientY;
     imagePositionsY.push(y);
@@ -174,16 +199,10 @@ function increaseDuration() {
 setInterval(increaseDuration, 1000);
 document.addEventListener('click', setInterval);
 
-//타이틀 구름 이미지 로드
-  function getImageSrcTitleCloud() {
-    var imageSrc = './img/01_chae/cloud.svg' ;
-    return imageSrc;
-    }
-
 //타이틀 구름 이미지 추가
   function showImageTitleCloud() {
     var imageElement = document.createElement('img');
-    imageElement.src = getImageSrcTitleCloud();
+    imageElement.src = './img/01_chae/cloud.svg';
     imageElement.classList.add('TitleCloud');
     imageElement.classList.add('TitleCloudAni');
     imageElement.classList.add('ImgSize15');
@@ -304,13 +323,19 @@ function showChaTxt01() {
 }
 
 function showChaImg02() {
+  console.log('cha02');
+  const currentWindowHeight = window.innerHeight
   var imageElement = document.querySelector('.ChaImg02');
   imageElement.style.display = 'block';
-  imageElement.classList.add('ImgSize20');
+  imageElement.style.top= '0px';
+  imageElement.style.left= '0px';
+  imageElement.style.height=currentWindowHeight + 'px';
+  //imageElement.style.z-index = '-100';
   document.addEventListener('click', showChaTxt02);
 }
 
 function showChaTxt02() {
+  console.log('cha02-txt');
   var imageElement = document.querySelector('.ChaTxt02');
   imageElement.style.display = 'block';
   imageElement.classList.add('ImgSize20');
@@ -366,11 +391,12 @@ function ClickSHTitle() {
   var imageElement = document.querySelector('.SHTitle');
   
   // CSS 클래스 제거
-  //imageElement.classList.remove('SHTitleAni');
-  //imageElement.classList.add('SHTitleAniPaused');
+  imageElement.classList.remove('SHTitleAni');
+  imageElement.classList.add('SHTitleAniPaused');
 
   document.addEventListener('click', SH);
   document.addEventListener('click', resetDurationSH);
+
 }
 
 var durationSH = 0;
@@ -390,96 +416,459 @@ function increaseDurationSH() {
 setInterval(increaseDurationSH, 1000);
 document.addEventListener('click', setInterval);
 
-//소스이미지변경
-function getImageSrcSH(second) {
-  var imageSrc = '';
-    if (second < 1) {
-      imageSrc = './img/03_sh/img01.png';
-    } else if (second < 3 ) {
-      imageSrc = './img/03_sh/img03.png';
-    } else if (second < 5 ) {
-      imageSrc = './img/03_sh/img04.png';
-    } else if (second < 7 ) {
-      imageSrc = './img/03_sh/img02.png';
-    } else if (second < 11 ) {
-      imageSrc = './img/03_sh/text01.png';
-    } else if (second < 15 ) {
-      imageSrc = './img/03_sh/text02.png';
-    } else if (second < 18 ) {
-      imageSrc = './img/03_sh/text03.png';
-    }
-  return imageSrc;
+
+//이미지 전개
+function showImageSH() {
+  setTimeout(function() {
+    var imageElement = document.createElement('img');
+    imageElement.src = './img/03_sh/03_sunghoon_img.gif';
+    imageElement.classList.add('ImgSize20');
+    imageElement.classList.add('SHImg01');
+    document.body.appendChild(imageElement);
+    console.log('ㄱ서ㅇ훈');
+    document.removeEventListener('click', SH);
+  }, 
+  1000 );
+
 }
 
 //이미지 전개
-function showImageSH(durationSH) {
+function showTextSH() {
   setTimeout(function() {
     var imageElement = document.createElement('img');
-    imageElement.src = getImageSrcSH(durationSH);
+    imageElement.src = './img/03_sh/03_sunghoon_txt.gif';
     imageElement.classList.add('ImgSize20');
     imageElement.classList.add('show');
+    imageElement.classList.add('SHTxt01');
     document.body.appendChild(imageElement);
   }, 
-  durationSH * 1000);
+  3000);
 
 }
 
-function Set_ShowImageSH(){
-showImageSH(1, 'SHImg01-1');
-showImageSH(2, 'SHImg03-1');
-showImageSH(3, 'SHImg04-1');
-showImageSH(4, 'SHImg02-1');
-showImageSH(5, 'SHTxt01-1');
-showImageSH(6, 'SHTxt02-1');
-showImageSH(7, 'SHTxt03-1');
-showImageSH(1, 'SHImg01-2');
-showImageSH(2, 'SHImg03-2');
-showImageSH(4, 'SHImg02-2');
-showImageSH(3, 'SHImg04-2');
-showImageSH(5, 'SHTxt01-2');
-showImageSH(6, 'SHTxt02-2');
-showImageSH(7, 'SHTxt03-2');
-showImageSH(1, 'SHImg01-3');
-showImageSH(2, 'SHImg03-3');
-showImageSH(4, 'SHImg02-3');
-showImageSH(3, 'SHImg04-3');
-showImageSH(5, 'SHTxt01-3');
-showImageSH(6, 'SHTxt02-3');
-showImageSH(7, 'SHTxt03-3');
-showImageSH(1, 'SHImg01-4');
-showImageSH(2, 'SHImg03-4');
-showImageSH(4, 'SHImg02-4');
-showImageSH(3, 'SHImg04-4');
-showImageSH(5, 'SHTxt01-4');
-showImageSH(6, 'SHTxt02-4');
-showImageSH(7, 'SHTxt03-4');
+//이미지 전개2
+function showImageSH02() {
+  setTimeout(function() {
+    var imageElement = document.createElement('img');
+    imageElement.src = './img/03_sh/03_sunghoon_img_128nodither.gif';
+    imageElement.classList.add('ImgSize20');
+    imageElement.classList.add('show');
+    imageElement.classList.add('SHImg02');
+    document.body.appendChild(imageElement);
+  }, 
+  5000);
+
 }
+
+//이미지 전개2
+function showTextSH02() {
+  setTimeout(function() {
+    var imageElement = document.createElement('img');
+    imageElement.src = './img/03_sh/03_sunghoon_txt_128nodither.gif';
+    imageElement.classList.add('ImgSize20');
+    imageElement.classList.add('show');
+    imageElement.classList.add('SHTxt02');
+    document.body.appendChild(imageElement);
+  }, 
+  7000);
+
+}
+
+//이미지 전개3
+function showImageSH03() {
+  setTimeout(function() {
+    var imageElement = document.createElement('img');
+    imageElement.src = './img/03_sh/03_sunghoon_img_restrictive.gif';
+    imageElement.classList.add('ImgSize20');
+    imageElement.classList.add('show');
+    imageElement.classList.add('SHImg03');
+    document.body.appendChild(imageElement);
+  }, 
+  9000);
+}
+
+//이미지 전개3
+function showTextSH03() {
+  setTimeout(function() {
+    var imageElement = document.createElement('img');
+    imageElement.src = './img/03_sh/03_sunghoon_txt_restrictive.gif';
+    imageElement.classList.add('ImgSize20');
+    imageElement.classList.add('show');
+    imageElement.classList.add('SHTxt03');
+    document.body.appendChild(imageElement);
+  }, 
+  11000);
+}
+
+//이미지 전개4
+function showImageSH04() {
+  setTimeout(function() {
+    var imageElement = document.createElement('img');
+    imageElement.src = './img/03_sh/03_sunghoon_img_color16.gif';
+    imageElement.classList.add('ImgSize20');
+    imageElement.classList.add('show');
+    imageElement.classList.add('SHImg04');
+    document.body.appendChild(imageElement);
+  }, 
+  13000);
+}
+
+//이미지 전개4
+function showTextSH04() {
+  setTimeout(function() {
+    var imageElement = document.createElement('img');
+    imageElement.src = './img/03_sh/03_sunghoon_txt_color16.gif';
+    imageElement.classList.add('ImgSize20');
+    imageElement.classList.add('show');
+    imageElement.classList.add('SHTxt04');
+    document.body.appendChild(imageElement);
+  }, 
+  13000);
+  setTimeout(function(){
+    startSuyeon();
+  },13000);
+}
+
 
 function SH(){
-Set_ShowImageSH();
-Set_ShowImageSH();
+  showImageSH();
+  showTextSH();
+  showImageSH02();
+  showTextSH02();
+  showImageSH03();
+  showTextSH03();
+  showImageSH04();
+  showTextSH04();
+  durationSY=0;
+}
+
+//=수연=
+//음악 재생 이후 일정 시간 이후 마우스에 오렌지이미지 등장
+
+var durationSY=0;
+
+// durationSY 값이 증가하는 예시 (시간이 흐르면서 durationSY가 증가해야 함)
+setInterval(function() {
+  durationSY++; // durationSY 값을 1씩 증가
+  console.log('durationSY:', durationSY);
+}, 1000); // 1초마다 durationSY 값 증가 (실제로는 시간에 맞게 설정)
+
+function startSuyeon(){
+  if (durationSY >= 8) {
+    // 8 이상일 때 실행할 작업을 여기에 추가
+    console.log('수연.');
+    getOrangeDropImg();
+    // 페이지 로드 후 1초마다 랜덤 이미지 표시
+    setInterval(showOrangeDropImg, 16000);
+    setInterval(ShowSYBar, 20000);
+    setTimeout(function(){ShowtitleJW();},3000);
+  }
+
+  // durationSY가 8 미만인 경우 아래의 함수들을 호출
+  showOrangeJuice();
+  if (18>=durationSY ){
+    document.addEventListener('click',  showOrangeJuice);
+  }
+  if (24>=durationSY ){
+    document.addEventListener('click',  ShowSYBar);
+  }
+  if (28>=durationSY ){
+    document.addEventListener('click',  showOrangeDropImg);
+  }
+};
+
+function getImageSrcSY (){
+  var imageSrc = './img/02_sy/orangejuice.jpg' ;
+  return imageSrc;
+};
+
+//마우스위치에 따른 오렌지 이미지 위치 반응
+function showOrangeJuice() {
+  var orangeJuice = document.querySelector('.juice');
+  orangeJuice.style.display = 'block';
+  orangeJuice.classList.add('container');
+
+  document.addEventListener('mousemove', moveOrangeJuice);
+  document.addEventListener('click', fixOrangeJuice);
+  showOrangeJuiceRe();
+}
+
+function moveOrangeJuice() {
+  let juice = document.querySelector(".juice");
+
+  document.addEventListener("mousemove", (e) => { 
+
+    let mouseX = e.clientX;
+    let mouseY = e.clientY;
+
+    juice.style.left = mouseX + 'px';
+    juice.style.top = mouseY + 'px'; });
+}
+
+//반대로 따라다니는 이미지(위치 계산)
+function showOrangeJuiceRe() {
+  var orangeJuice = document.querySelector('.Reversejuice');
+  orangeJuice.style.display = 'block';
+
+  document.addEventListener('mousemove', moveOrangeJuiceRe);
+  document.addEventListener('click', fixOrangeJuiceRe);
+}
+
+function moveOrangeJuiceRe(event) {
+  var imageElement = document.querySelector('.Reversejuice');
+  var containerElement = document.querySelector('.container');
+
+  // 마우스의 현재 위치
+  var mouseX = event.clientX;
+  var mouseY = event.clientY;
+
+  // 컨테이너 요소의 가로, 세로 중앙 위치
+  var containerCenterX = containerElement.offsetWidth / 2;
+  var containerCenterY = containerElement.offsetHeight / 2;
+
+  // 이미지 위치 계산
+  var ReverseX = containerCenterX - (mouseX - containerCenterX);
+  var ReverseY = containerCenterY - (mouseY - containerCenterY);
+
+  // 이미지 위치 설정
+  imageElement.style.left =  ReverseX + 'px';
+  imageElement.style.top = ReverseY + 'px';
 }
 
 
+//클릭 시 오렌지 이미지 드롭
+function fixOrangeJuice(event) {
+  var imageElement = document.createElement('img');
+  var offsetX = event.clientX;
+  var offsetY = event.clientY;
+  imageElement.src = getImageSrcSY();
+  imageElement.classList.add('ImgSize10');
+  imageElement.style.position = 'fixed';
+  imageElement.style.left = offsetX + 'px';
+  imageElement.style.top = offsetY + 'px';
+  document.body.appendChild(imageElement);
+
+}
+
+function fixOrangeJuiceRe(event) {
+  var imageElement = document.createElement('img');
+  var mouseX = event.clientX;
+  var mouseY = event.clientY;
+  var ReverseX = WindowHeight - (mouseX);
+  var ReverseY = WindowWidth - (mouseY);
+  imageElement.src = getImageSrcSY();
+  imageElement.classList.add('ImgSize10');
+  imageElement.style.position = 'fixed';  
+  imageElement.style.left =  ReverseX + 'px';
+  imageElement.style.top = ReverseY + 'px';
+  document.body.appendChild(imageElement);
+
+}
+
+//음악 재생 이후 일정 시간 이후 마우스가 움직이는 동선을 따라 오렌지 방울 드롭
+const OrangeDropImg = [];
+
+for (let i = 1; i <= 27; i++) {
+  const imagePath = `./img/02_sy/assets/sy_drop${i}.png`;
+  OrangeDropImg.push(imagePath);
+}
+
+function getOrangeDropImg(){
+  // 이미지 배열에서 랜덤한 인덱스 선택
+  const randomIndex = Math.floor(Math.random() * OrangeDropImg.length);
+  
+  // 선택한 이미지 경로 가져오기
+  const randomOrangeDropImg = OrangeDropImg[randomIndex];
+  return randomOrangeDropImg;
+}
+
+
+function showOrangeDropImg() {
+// 랜덤 이미지 경로 가져오기
+const OrangeDropImg = getOrangeDropImg();
+
+// 이미지 요소 생성 및 스타일 설정
+
+var RandomX = getRandomPosition(0, WindowWidth);
+var RandomY = getRandomPosition(0, WindowHeight);
+
+const imageElement = document.createElement('img');
+imageElement.src = OrangeDropImg;
+imageElement.alt = 'Random Image';
+imageElement.classList.add('random-image');
+imageElement.classList.add('OrangeDrop');
+imageElement.style.left = RandomX + 'px';
+imageElement.style.top = RandomY + 'px';
+
+// 이미지를 페이지에 추가
+document.body.appendChild(imageElement);
+}
+
+var imageElement = document.querySelector('.OrangeDrop');
+var containerElement = document.querySelector('.containerDrop');
+
+
+//음악 재생 이후 일정 시간 이후 클릭 시 랜덤 위치에 바 드롭
+const randombar = [];
+for (let i = 1; i <= 6; i++) {
+  const imagePath = `./img/02_sy/assets/sy_bar${i}.png`;
+  randombar.push(imagePath);
+}
+
+function getImageSrcSYBar(){
+  // 이미지 배열에서 랜덤한 인덱스 선택
+  const randomIndex = Math.floor(Math.random() * randombar.length);
+  
+  // 선택한 이미지 경로 가져오기
+  const randomSrcSYBar = randombar[randomIndex];
+  return randomSrcSYBar;
+}
+
+function getRandomPosition(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function ShowSYBar() {
+  var imageElement = document.createElement('img');
+  var RandomX = getRandomPosition(0, WindowWidth);
+  var RandomY = getRandomPosition(0, WindowHeight);
+  imageElement.src = getImageSrcSYBar();
+  imageElement.classList.add('ImgSize20');
+  document.body.appendChild(imageElement);
+  imageElement.style.opacity = '60%';
+  // 이미지 위치 설정
+  imageElement.style.left = RandomX + 'px';
+  imageElement.style.top = RandomY  + 'px';
+
+  // 이미지 보이기
+  imageElement.style.display = 'block';
+
+}
 
 //타이틀 클릭 위치 바로 아래에서 처음 이미지 전개
+function ShowtitleJW(){
+  //var caculatedX = calculateMaxDeviationAverageX();
+  //var caculatedY = calculateMaxDeviationAverageY();
+  var RandomX = getRandomPosition(0, WindowWidth);
+  var RandomY = getRandomPosition(0, WindowHeight);
+
+  var imageElement = document.createElement('img');
+  imageElement.src = './img/04_JW/img02-01.png'
+  imageElement.classList.add('ImgSize20');
+  document.body.appendChild(imageElement);
+  // 이미지 위치 설정
+  imageElement.style.left = RandomX + 'px';
+  imageElement.style.top = RandomY  + 'px';
+  imageElement.addEventListener('click', ShowImgJW);
+}
+
+const ImgSrcJW = [
+  './img/04_jw/img00.png',
+  './img/04_jw/img01.png',
+  './img/04_jw/img01-01.png',
+  './img/04_jw/img02-01.png',
+  './img/04_jw/img02-02.png',
+  './img/04_jw/img02-03.png',
+  './img/04_jw/text01.svg',
+  './img/04_jw/text02.svg',
+  './img/04_jw/text03.svg',
+]
+
 //타이틀 클릭 위치 함수에서 계산하여 위치 이동(화면 밖을 벗어나지 않도록)
-  //이미지 전개
-  //배경 이미지 등장
-  //집 등장
-  //풀 등장
-  //오렌지 등장
-  //타이틀 등장
-  //어디~~ 등장
-  //레몬과~~등장
+function ShowImgJW(){
+  console.log('jiwon');
+  for (let i = 0; i < ImgSrcJW.length; i++) {
+    setTimeout(function() {
+  //var caculatedX = calculateMaxDeviationAverageX();
+  //var caculatedY = calculateMaxDeviationAverageY();
+  var RandomX = getRandomPosition(0, WindowWidth);
+  var RandomY = getRandomPosition(0, WindowHeight);
+
+  imageElement = document.createElement('img');
+  imageElement.src = ImgSrcJW[i];
+  imageElement.classList.add('ImgSize30');
+  document.body.appendChild(imageElement);
+  // 이미지 위치 설정
+  imageElement.style.left = RandomX + 'px';
+  imageElement.style.top = RandomY  + 'px';
+  },1000);
+}
+setTimeout(function() {ShowTxtHJ();},3000);
+  document.removeEventListener('click', ShowtitleJW);
+
+}
 
 //=환준=
 //음악 재생 이후 일정 시간 이후 다음 함수 3번 반복
   //오렌지 1개 등장 및 깜빡거림
   //클릭 시 사라짐
 //환준 타이틀 한 글자씩 등장
+
 //오렌지와 빈 잼병 등장
 //오렌지를 잼병에 드래그
 //잼병 채우진 이미지 등장
-//잼병 드래그 시 잼병 깨지고 글자.. 모르겠음
+function ShowTxtHJ(){
+  //var caculatedX = calculateMaxDeviationAverageX();
+  //var caculatedY = calculateMaxDeviationAverageY();
+  const currentWindowWidth = window.innerWidth;
+  var RandomX = getRandomPosition(0, WindowWidth);
+  var RandomY = getRandomPosition(0, WindowHeight);
 
+imageElement = document.createElement('img');
+  imageElement.src = './img/05_hj/05_hwanjun_02.png';
+  imageElement.style.width = currentWindowWidth/3  + 'px';
+  document.body.appendChild(imageElement);
+
+  // 이미지 위치 설정
+  imageElement.style.left = RandomX + 'px';
+  imageElement.style.top = RandomY  + 'px';
+
+  imageElement.classList.add('TitleCloudAni');
+
+  setTimeout(function() {ShowImgMJ();},5000);
+  document.removeEventListener('click', ShowTxtHJ);
+
+};
+
+
+//=민제=
+const ImgSrcMJ = [
+  './img/06_mj/img01.png',
+  './img/06_mj/img02.png',
+  './img/06_mj/img03.png',
+  './img/06_mj/img04.png',
+  './img/06_mj/img05.png',
+  './img/06_mj/img06.png'
+]
+
+//타이틀 클릭 위치 함수에서 계산하여 위치 이동(화면 밖을 벗어나지 않도록)
+function ShowImgMJ(){
+  console.log('minje');
+  for (let i = 0; i < ImgSrcMJ.length; i++) {
+    setTimeout(function() {
+  //var caculatedX = calculateMaxDeviationAverageX();
+  //var caculatedY = calculateMaxDeviationAverageY();
+  var RandomX = getRandomPosition(0, WindowWidth);
+  var RandomY = getRandomPosition(0, WindowHeight);
+
+  imageElement = document.createElement('img');
+  imageElement.src = ImgSrcMJ[i];
+  imageElement.classList.add('ImgSize20');
+  document.body.appendChild(imageElement);
+  // 이미지 위치 설정
+  imageElement.style.left = RandomX + 'px';
+  imageElement.style.top = RandomY  + 'px';
+  },5000);
+}
+}
+function rotateSphere(){
+rotateY(millis() / 1000);
+fill(235,130,20);
+sphere(32, 8,8);
+}
+
+function sphere(radius, detailX, detailY){
+  push();
+  sphere(radius, detailX, detailY);
+  pop();
+}

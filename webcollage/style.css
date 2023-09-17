@@ -26,27 +26,43 @@ body {
     z-index: -100;
   }
 
+  #p5-canvas{
+    position: absolute;
+  }
+
+  .ImgSize5 {
+    width: 5%;
+    height: auto;
+    max-height: 20%;
+    display: inline-block;
+  }
+
 .ImgSize10 {
     width: 10%;
     height: auto;
+    max-height: 40%;
     display: inline-block;
   }
 
 .ImgSize15 {
     width: 15%;
     height: auto;
+    max-height: 40%;
     display: inline-block;
+
 }
 
 .ImgSize20 {
     width: 20%;
     height: auto;
+    max-height: 60%;
     display: inline-block;
 }
   
 .ImgSize30 {
     width: 30%;
     height: auto;
+    max-height: 60%;
     display: inline-block;
 }
   
@@ -182,11 +198,12 @@ body {
 }
 
 .ChaImg02{
-    top:0px;
-    left:0px;
-
-    margin-top: 5%;
+    margin-top: 0px;
+    top: 0px;
+    left:auto;
+    right:auto;
     display:none; 
+    z-index: -100;
 }
 
 .ChaImg03{
@@ -232,126 +249,55 @@ body {
     animation: blinkSH 2s paused;
 }
 
-.SHImg01-1{
+.SHImg01{
     position: absolute;
-    display: none;
-    top: 200px;
-    left: 20px;
+    left: 25px;
+    top: 240px;
 }
 
-.SHImg02-1{
+.SHImg02{
     position: absolute;
-    display: none;
-    top: 200px;
-    left: 20px;
+    left: 380px;
+    top: 710px;
 }
 
-.SHImg03-1{
+.SHImg03{
     position: absolute;
-    display: none;
+    left: 230px;
+    top: 20px;
 }
 
-.SHImg04-1{
+.SHImg04{
     position: absolute;
-    display: none;
+    left:0px;
+    top:0px;
+    width: 50px;
 }
 
-.SHTxt01-1{
+.SHTxt01{
     position: absolute;
-    display: none;
+    left: 110px;
+    top: 300px;
 }
 
-.SHTxt02-1{
+.SHTxt02{
     position: absolute;
-    display: none;
+    left: 320px;
+    top: 640px;
 }
 
-.SHTxt03-1{
+.SHTxt03{
     position: absolute;
-    display: none;
+    left: 270px;
+    top: -5px;
 }
 
-.SHImg01-2{
+.SHTxt04{
     position: absolute;
-    display: none;
-    top: 200px;
-    left: 20px;
+    left:0px;
+    top:0px;
+    width: 50px;
 }
-
-.SHImg02-2{
-    position: absolute;
-    display: none;
-    top: 200px;
-    left: 20px;
-}
-
-.SHImg03-2{
-    position: absolute;
-    display: none;
-}
-
-.SHImg04-2{
-    position: absolute;
-    display: none;
-}
-
-.SHTxt01-2{
-    position: absolute;
-    display: none;
-}
-
-.SHTxt02-2{
-    position: absolute;
-    display: none;
-}
-
-.SHTxt03-2{
-    position: absolute;
-    display: none;
-}
-
-.SHImg01-3{
-    position: absolute;
-    display: none;
-    top: 200px;
-    left: 20px;
-}
-
-.SHImg02-3{
-    position: absolute;
-    display: none;
-    top: 200px;
-    left: 20px;
-}
-
-.SHImg03-3{
-    position: absolute;
-    display: none;
-}
-
-.SHImg04-3{
-    position: absolute;
-    display: none;
-}
-
-.SHTxt01-3{
-    position: absolute;
-    display: none;
-}
-
-.SHTxt02-3{
-    position: absolute;
-    display: none;
-}
-
-.SHTxt03-3{
-    position: absolute;
-    display: none;
-}
-
-
-
-
 
 /*수연*/
 .container {
@@ -364,7 +310,6 @@ body {
 .juice{
     display: none;
     pointer-events: none; 
-    /* 이미지가 마우스 이벤트를 가로채지 않도록 함 */
 }
 
 .Reversejuice{
@@ -379,10 +324,12 @@ body {
 
 .OrangeDrop {
     position: absolute;
+    width: 15px;
+    height: auto;
 }
 
-.containerDrop{
-    
+.random-image {
+    position: absolute;
 }
 
 .spmn{
@@ -533,3 +480,9 @@ body {
 }
 
 /*환준*/
+
+/*민제*/
+#p5Sphere{
+    position: absolute;
+    z-index: 1000;
+}
