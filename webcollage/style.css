@@ -358,7 +358,8 @@ body {
 .SYbar04{
     display: none;
     top: 0px;
-    left :0px;
+    left: 0px;
+    opacity: 80%;
     height: 1600px;
 }
 .SYbar05{
