@@ -31,7 +31,7 @@ body {
     top: 15%;
     left: 50%;
     color: white;
-    font-size: 10.5pt;
+    font-size: 10.5 pt;
     line-height: 150%;
     text-align: left;
     font-family: 'Noto Sans KR', sans-serif;
@@ -358,7 +358,7 @@ body {
 .SYbar04{
     display: none;
     top: 0px;
-    left: 0px;
+    left :0px;
     opacity: 80%;
     height: 1600px;
 }
@@ -509,14 +509,13 @@ body {
 }
 
 .copyright{
-    
+    right: 0px;
     bottom: 0px;
-    margin-bottom: 15px;
-    left: 50%;
-    transform: translate(0%, -50%);
+    margin-bottom: 12px;
+    margin-right: 320px;
     color: white;
-    font-size: 8pt;
-    line-height: 130%;
-    text-align: center;
+    font-size: 7.5pt;
+    line-height: 125%;
+    text-align: right;
     font-family: 'Noto Sans KR', sans-serif;
 }
