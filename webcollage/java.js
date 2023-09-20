@@ -972,8 +972,8 @@ function AddGif04(){
       imageElement.src = './img/07_etc/qoo.gif';
       imageElement.classList.add('ImgSize10');
       imageElement.classList.add('show');
-      imageElement.style.top = '700px';
-      imageElement.style.left = '800px';
+      imageElement.style.top = '600px';
+      imageElement.style.left = '750px';
       document.body.appendChild(imageElement);
 }  
 
