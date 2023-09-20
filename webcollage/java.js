@@ -11,7 +11,9 @@ function setup() {
 }
 
 function draw() {
+
 }
+
 //[화면크기와 이미지크기, 배치]
 //초기 화면 크기 저장 
   const WindowWidth = window.innerWidth;
@@ -389,6 +391,8 @@ function showImageWithDelaySH() {
   console.log('clcik');
   document.removeEventListener('click', showImageWithDelaySH);
   imageElement.addEventListener('click', ClickSHTitle);
+  AddGif03();
+  
 }
 
 //성훈 타이틀 클릭 시 애니메이션 중지
@@ -402,7 +406,7 @@ function ClickSHTitle() {
 
   document.addEventListener('click', SH);
   document.addEventListener('click', resetDurationSH);
-
+  AddGif04();
 }
 
 var durationSH = 0;
@@ -546,6 +550,7 @@ function SH(){
   showImageSH04();
   showTextSH04();
   durationSY=0;
+  ShowSphere24();
 }
 
 //=수연=
@@ -566,7 +571,7 @@ function startSuyeon(){
     getOrangeDropImg();
     ShowSYBar();
     // 페이지 로드 후 1초마다 랜덤 이미지 표시
-    setInterval(showOrangeDropImg, 16000);
+    setInterval(showOrangeDropImg, 12000);
     setTimeout(function(){ShowtitleJW();},3000);
   }
 
@@ -598,6 +603,7 @@ function showOrangeJuice() {
   document.addEventListener('mousemove', moveOrangeJuice);
   document.addEventListener('click', fixOrangeJuice);
   showOrangeJuiceRe();
+  AddGif02();
 }
 
 function moveOrangeJuice() {
@@ -619,6 +625,7 @@ function showOrangeJuiceRe() {
 
   document.addEventListener('mousemove', moveOrangeJuiceRe);
   document.addEventListener('click', fixOrangeJuiceRe);
+  AddGif02();
 }
 
 function moveOrangeJuiceRe(event) {
@@ -755,31 +762,34 @@ function getRandomPosition(min, max) {
 function ShowSYBar() {
   let SYbar01 = document.querySelector(".SYbar01");
   SYbar01.style.display = 'block';
-  ShowSYBar02();
+  setTimeout(function() {ShowSYBar02();},2000);
 }
 
 function ShowSYBar02() {
   let SYbar02 = document.querySelector(".SYbar02");
   SYbar02.style.display = 'block';
-  ShowSYBar03();
+  setTimeout(function() {ShowSYBar03();},4000);
+  setTimeout(function() {ShowSYBar02();},2000);
 }
 
 function ShowSYBar03() {
   let SYbar03 = document.querySelector(".SYbar03");
   SYbar03.style.display = 'block';
-  ShowSYBar04();
+  setTimeout(function() {ShowSYBar04();},3000);
+  setTimeout(function() {ShowSYBar02();},2000);
 }
   
 function ShowSYBar04() {
   let SYbar04 = document.querySelector(".SYbar04");
   SYbar04.style.display = 'block';
-  ShowSYBar05();
+  setTimeout(function() {ShowSYBar05();},1500);
 }
 
 function ShowSYBar05() {
   let SYbar05 = document.querySelector(".SYbar05");
   SYbar05.style.display = 'block';
-  ShowSYBar06();
+  setTimeout(function() {ShowSYBar06();},4000);
+  setTimeout(function() {ShowSYBar03();},4000);
 }
 
 function ShowSYBar06() {
@@ -844,6 +854,7 @@ function ShowImgJW(){
 setTimeout(function() {ShowTxtJW();},2000);
 setTimeout(function() {ShowTxtHJ();},3000);
   document.removeEventListener('click', ShowtitleJW);
+  
 }
 
 function ShowTxtJW(){
@@ -907,7 +918,20 @@ const ImgSrcMJ = [
   './img/06_mj/img03.png',
   './img/06_mj/img04.png',
   './img/06_mj/img05.png',
-  './img/06_mj/img06.png'
+  './img/06_mj/img06.png',
+  './img/06_mj/img07.png',
+  './img/06_mj/img08.png',
+  './img/06_mj/img09.png',
+  './img/06_mj/img10.png',
+  './img/06_mj/img11.png',
+  './img/06_mj/img12.png',
+  './img/06_mj/img13.png',
+  './img/06_mj/img14.png',
+  './img/06_mj/img15.png',
+  './img/06_mj/img16.png',
+  './img/06_mj/img17.png',
+  './img/06_mj/img18.png',
+  './img/06_mj/img19.png'
 ]
 
 //타이틀 클릭 위치 함수에서 계산하여 위치 이동(화면 밖을 벗어나지 않도록)
@@ -922,7 +946,7 @@ function ShowImgMJ(){
 
   imageElement = document.createElement('img');
   imageElement.src = ImgSrcMJ[i];
-  imageElement.classList.add('ImgSize20');
+  imageElement.classList.add('ImgSize10');
   document.body.appendChild(imageElement);
   // 이미지 위치 설정
   imageElement.style.left = RandomX + 'px';
@@ -930,7 +954,10 @@ function ShowImgMJ(){
   },5000);
 }
 rotateSphere();
+AddGif01();
+Ending();
 }
+
 function rotateSphere(){
 let RandomX = random(windowWidth);
 let RandomY = random(windowHeight);
@@ -949,4 +976,83 @@ function sphere(){
   let r3 = random(12);
   sphere(r, r2,r3);
   pop();
+}
+
+function AddGif01(){
+var imageElement = document.createElement('img');
+    imageElement.src = './img/07_etc/drop.gif';
+    imageElement.classList.add('ImgSize20');
+    imageElement.classList.add('show');
+    document.body.appendChild(imageElement);
+}
+
+function AddGif02(){
+  var imageElement = document.createElement('img');
+      imageElement.src = './img/07_etc/orange.gif';
+      imageElement.classList.add('ImgSize10');
+      imageElement.classList.add('show');
+      imageElement.style.bottom = '0px';
+      imageElement.style.right = '0px';
+      document.body.appendChild(imageElement);
+}
+
+function AddGif03(){
+  var imageElement = document.createElement('img');
+      imageElement.src = './img/07_etc/orangespiral.gif';
+      imageElement.classList.add('ImgSize20');
+      imageElement.classList.add('show');
+      document.body.appendChild(imageElement);
+}  
+
+function AddGif04(){
+  var imageElement = document.createElement('img');
+      imageElement.src = './img/07_etc/qoo.gif';
+      imageElement.classList.add('ImgSize10');
+      imageElement.classList.add('show');
+      imageElement.style.top = '700px';
+      imageElement.style.left = '800px';
+      document.body.appendChild(imageElement);
+}  
+
+function AddGif05(){
+  var imageElement = document.createElement('img');
+      imageElement.src = './img/07_etc/yell-orange.gif';
+      imageElement.classList.add('ImgSize20');
+      imageElement.classList.add('show');
+      document.body.appendChild(imageElement);
+}  
+
+const ImgSrcSphere = [
+  './img/08_sphere/Sphere01.png',
+  './img/08_sphere/Sphere02.png',
+  './img/08_sphere/Sphere03.png',
+  './img/08_sphere/Sphere04.png',
+  './img/08_sphere/Sphere05.png',
+  './img/08_sphere/Sphere06.png',
+  './img/08_sphere/Sphere07.png'
+]
+
+function ShowSphere24(){
+  console.log('Sphere');
+  for (let i = 0; i < ImgSrcSphere.length; i++) {
+    setTimeout(function() {
+  //var caculatedX = calculateMaxDeviationAverageX();
+  //var caculatedY = calculateMaxDeviationAverageY();
+  var RandomX = getRandomPosition(0, WindowWidth);
+  var RandomY = getRandomPosition(0, WindowHeight);
+
+  imageElement = document.createElement('img');
+  imageElement.src = ImgSrcSphere[i];
+  imageElement.classList.add('ImgSize10');
+  document.body.appendChild(imageElement);
+  // 이미지 위치 설정
+  imageElement.style.left = RandomX + 'px';
+  imageElement.style.top = RandomY  + 'px';
+  },100000);
+}
+}
+
+function Ending(){
+var imageElement = document.querySelector('.caption02');
+  imageElement.style.display = 'block';
 }

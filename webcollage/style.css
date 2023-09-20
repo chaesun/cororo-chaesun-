@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css); 
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 @font-face {
     font-family: 'Arita-dotum-Medium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff') format('woff');
@@ -25,6 +26,32 @@ body {
     background: #FF8A00;
     z-index: -100;
   }
+
+.caption{
+    top: 15%;
+    left: 50%;
+    transform: translate(0%, -50%);
+    color: white;
+    font-size: 16pt;
+    line-height: 150%;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.caption02{
+    top: 15%;
+    left: 50%;
+    transform: translate(0%, -50%);
+    color: white;
+    font-size: 16pt;
+    line-height: 150%;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #FF8A00;
+    display: none;
+    z-index: 100;
+}
+
 
   #p5-canvas{
     position: absolute;
@@ -332,7 +359,7 @@ body {
     display: none;
     top: 0px;
     left :0px;
-    height: 900px;
+    height: 1600px;
 }
 .SYbar05{
     display: none;
@@ -344,7 +371,7 @@ body {
 .SYbar06{
     display: none;
     top: 0px;
-    left : 50%;
+    left : 1150px;
     height: 600px;
 }
 
@@ -478,4 +505,17 @@ body {
 #p5Sphere{
     position: absolute;
     z-index: 1000;
+}
+
+.copyright{
+    
+    bottom: 0px;
+    margin-bottom: 15px;
+    left: 50%;
+    transform: translate(0%, -50%);
+    color: white;
+    font-size: 8pt;
+    line-height: 130%;
+    text-align: center;
+   
 }
