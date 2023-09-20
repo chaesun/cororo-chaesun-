@@ -311,7 +311,6 @@ function showChaTxt01() {
   imageElement.style.display = 'block';
   imageElement.classList.add('ImgSize20');
   document.addEventListener('click', showChaImg02);
-  rotateSphere();
 }
 
 function showChaImg02() {
@@ -563,7 +562,6 @@ function startSuyeon(){
   // durationSY가 8 미만인 경우 아래의 함수들을 호출
   showOrangeJuice();
   if (18>=durationSY ){
-    rotateSphere();
     document.addEventListener('click',  showOrangeJuice);
   }
   if (24>=durationSY ){
