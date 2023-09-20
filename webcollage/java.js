@@ -1,17 +1,3 @@
-let OrangeTexture;
-
-function preload() {
-OrangeTexture= loadImage('./img/orgtxtr.png');
-}
-
-function setup() {
-  var canvas = createCanvas(WindowWidth, WindowHeight, WEBGL);
-  canvas.parent('p5-canvas');
-}
-
-function draw() {
-
-}
 
 //[화면크기와 이미지크기, 배치]
 //초기 화면 크기 저장 
@@ -952,30 +938,10 @@ function ShowImgMJ(){
   imageElement.style.top = RandomY  + 'px';
   },5000);
 }
-rotateSphere();
 AddGif01();
 Ending();
 }
 
-function rotateSphere(){
-let RandomX = random(windowWidth);
-let RandomY = random(windowHeight);
-translate(RandomX, RandomY, 0); 
-rotateY(millis() / 1000);
-fill(235,130,20);
-var p5Sphere = sphere();
-p5Sphere.parent('p5Sphere');
-}
-
-function sphere(){
-  push();
-  //texture(OrangeTexture);
-  let r = random(24);
-  let r2 = random(12);
-  let r3 = random(12);
-  sphere(r, r2,r3);
-  pop();
-}
 
 function AddGif01(){
 var imageElement = document.createElement('img');
