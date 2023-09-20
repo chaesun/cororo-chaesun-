@@ -817,10 +817,8 @@ const ImgSrcJW = [
   './img/04_jw/img01-06.png',
   './img/04_jw/img02-01.png',
   './img/04_jw/img02-02.png',
-  './img/04_jw/img02-03.png',
   './img/04_jw/text01.svg',
   './img/04_jw/text02.svg',
-  './img/04_jw/text03.svg',
 ]
 
 //타이틀 클릭 위치 함수에서 계산하여 위치 이동(화면 밖을 벗어나지 않도록)
@@ -835,16 +833,38 @@ function ShowImgJW(){
 
   imageElement = document.createElement('img');
   imageElement.src = ImgSrcJW[i];
-  imageElement.classList.add('ImgSize30');
+  imageElement.classList.add('ImgSize15');
   document.body.appendChild(imageElement);
   // 이미지 위치 설정
   imageElement.style.left = RandomX + 'px';
   imageElement.style.top = RandomY  + 'px';
   },1000);
+  
 }
+setTimeout(function() {ShowTxtJW();},2000);
 setTimeout(function() {ShowTxtHJ();},3000);
   document.removeEventListener('click', ShowtitleJW);
+}
 
+function ShowTxtJW(){
+  console.log('jiwontxt');
+  
+    setTimeout(function() {
+  //var caculatedX = calculateMaxDeviationAverageX();
+  //var caculatedY = calculateMaxDeviationAverageY();
+  var RandomX = getRandomPosition(0, WindowWidth);
+  var RandomY = getRandomPosition(0, WindowHeight);
+
+  imageElement = document.createElement('img');
+  imageElement.src = './img/04_jw/text03.svg'
+  document.body.appendChild(imageElement);
+  // 이미지 위치 설정
+  imageElement.style.left = RandomX + 'px';
+  imageElement.style.top = RandomY  + 'px';
+  imageElement.style.height= '100%';
+  },1000);
+setTimeout(function() {ShowTxtHJ();},3000);
+  document.removeEventListener('click', ShowtitleJW);
 }
 
 //=환준=
@@ -923,8 +943,8 @@ p5Sphere.parent('p5Sphere');
 
 function sphere(){
   push();
-  texture(OrangeTexture);
-  let r = random(32);
+  //texture(OrangeTexture);
+  let r = random(24);
   let r2 = random(12);
   let r3 = random(12);
   sphere(r, r2,r3);
