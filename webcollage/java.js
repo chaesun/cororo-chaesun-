@@ -391,6 +391,7 @@ function ClickSHTitle() {
   document.addEventListener('click', SH);
   document.addEventListener('click', resetDurationSH);
   AddGif04();
+  AddGif04_1();
 }
 
 var durationSH = 0;
@@ -972,8 +973,18 @@ function AddGif04(){
       imageElement.src = './img/07_etc/qoo.gif';
       imageElement.classList.add('ImgSize10');
       imageElement.classList.add('show');
-      imageElement.style.top = '600px';
-      imageElement.style.left = '750px';
+      imageElement.style.top = '700px';
+      imageElement.style.left = '360px';
+      document.body.appendChild(imageElement);
+}  
+
+function AddGif04_1(){
+  var imageElement = document.createElement('img');
+      imageElement.src = './img/07_etc/qoo.gif';
+      imageElement.classList.add('ImgSize10');
+      imageElement.classList.add('show');
+      imageElement.style.top = '700px';
+      imageElement.style.left = '820px';
       document.body.appendChild(imageElement);
 }  
 
