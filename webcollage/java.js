@@ -555,7 +555,7 @@ function startSuyeon(){
     getOrangeDropImg();
     ShowSYBar();
     // 페이지 로드 후 1초마다 랜덤 이미지 표시
-    setInterval(showOrangeDropImg, 12000);
+    setInterval(showOrangeDropImg, 8000);
     setTimeout(function(){ShowtitleJW();},3000);
   }
 
