@@ -30,12 +30,12 @@ body {
 .caption{
     top: 15%;
     left: 50%;
-    transform: translate(0%, -50%);
     color: white;
     font-size: 16pt;
     line-height: 150%;
-    text-align: center;
+    text-align: left;
     font-family: 'Noto Sans KR', sans-serif;
+    word-break: keep-all;
 }
 
 .caption02{
@@ -517,5 +517,5 @@ body {
     font-size: 8pt;
     line-height: 130%;
     text-align: center;
-   
+    font-family: 'Noto Sans KR', sans-serif;
 }

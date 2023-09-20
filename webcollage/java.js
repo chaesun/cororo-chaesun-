@@ -1,6 +1,5 @@
 let OrangeTexture;
 
-
 function preload() {
 OrangeTexture= loadImage('./img/orgtxtr.png');
 }
